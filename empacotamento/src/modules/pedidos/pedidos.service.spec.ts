@@ -31,7 +31,7 @@ describe('PedidosService', () => {
 
   it('deve lançar erro ao tentar empacotar produto gigante', () => {
     expect(() => service.create({ produtos: [PRODUTO_GIGANTE] })).toThrow(
-      'Produto não cabe em nenhuma caixa',
+      'não cabe em nenhuma caixa disponível',
     );
   });
 
@@ -60,5 +60,38 @@ describe('PedidosService', () => {
     });
     expect(result.caixas.length).toBe(1);
     expect(result.caixas[0].produtos.length).toBe(3);
+  });
+
+  it('deve criar múltiplos pedidos e retornar array de resultados', () => {
+    const multiplos = {
+      pedidos: [
+        { produtos: [PRODUTO_PEQUENO] },
+        { produtos: [PRODUTO_MEDIO] },
+        CREATE_PEDIDO_DTO
+      ]
+    };
+
+    const resultados = service.createMultiples(multiplos);
+
+    expect(resultados.length).toBe(3);
+    expect(resultados[0].pedidoId).toBeDefined();
+    expect(resultados[1].pedidoId).toBeDefined();
+    expect(resultados[2].pedidoId).toBeDefined();
+    expect(resultados[0].caixas.length).toBeGreaterThan(0);
+    expect(resultados[1].caixas.length).toBeGreaterThan(0);
+    expect(resultados[2].caixas.length).toBeGreaterThan(0);
+  });
+
+  it('deve falhar múltiplos pedidos se um deles for inválido', () => {
+    const multiplos = {
+      pedidos: [
+        { produtos: [PRODUTO_PEQUENO] },
+        { produtos: [PRODUTO_GIGANTE] }
+      ]
+    };
+
+    expect(() => service.createMultiples(multiplos)).toThrow(
+      'Erro ao processar pedido',
+    );
   });
 });
