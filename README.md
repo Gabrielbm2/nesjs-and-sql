@@ -90,19 +90,3 @@ Automatizar o processo de empacotamento na Loja do Seu Manoel, reduzindo custos 
 
 ### Horários
 Facilitar a gestão acadêmica através de consultas SQL eficientes para controle de horários, salas e cargas horárias.
-
-## 🤝 Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
----
-
-**Desenvolvido para otimizar os processos da Loja do Seu Manoel** 🏪
