@@ -1,0 +1,11 @@
+services:
+  empacotamento:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: empacotamento_api
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
