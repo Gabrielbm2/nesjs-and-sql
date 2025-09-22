@@ -54,4 +54,4 @@ async function bootstrap() {
 
   logger.verbose(`(Running: http://localhost:${APP_PORT})`);
 }
-bootstrap();
+void bootstrap();

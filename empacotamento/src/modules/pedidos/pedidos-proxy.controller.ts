@@ -1,11 +1,9 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
 import { PedidoResponseDto } from './dto/response-pedido.dto';
 import { PedidosClient } from './pedidos.client';
 import { lastValueFrom } from 'rxjs';
 
-@ApiTags('Pedidos Proxy')
 @Controller('pedidos-proxy')
 export class PedidosProxyController {
   constructor(private readonly client: PedidosClient) {}

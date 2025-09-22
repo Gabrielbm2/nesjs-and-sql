@@ -3,15 +3,21 @@ import { Type } from 'class-transformer';
 import { ValidateNested, IsArray, IsNumber } from 'class-validator';
 
 class ProdutoDto {
-  @ApiProperty()
+  @ApiProperty({ description: 'Altura do produto em centímetros', example: 10 })
   @IsNumber()
   altura: number;
 
-  @ApiProperty()
+  @ApiProperty({
+    description: 'Largura do produto em centímetros',
+    example: 15,
+  })
   @IsNumber()
   largura: number;
 
-  @ApiProperty()
+  @ApiProperty({
+    description: 'Comprimento do produto em centímetros',
+    example: 20,
+  })
   @IsNumber()
   comprimento: number;
 }

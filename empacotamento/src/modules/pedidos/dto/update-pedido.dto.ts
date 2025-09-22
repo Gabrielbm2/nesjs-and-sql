@@ -1,3 +1,3 @@
 import { CreatePedidoDto } from './create-pedido.dto';
 
-export class UpdateFileDto extends CreatePedidoDto {}
+export class UpdatePedidoDto extends CreatePedidoDto {}
